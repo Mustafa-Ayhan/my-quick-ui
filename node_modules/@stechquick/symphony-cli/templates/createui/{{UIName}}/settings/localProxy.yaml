@@ -1,0 +1,25 @@
+
+
+##-----PLEASE DELETE/COMMENT LINES BELOW-----
+##------Local proxy redirection samples------
+
+
+  ##Sample service redirection (local)
+/services/processmanager: http://localhost/processmanager
+
+  ##Sample service redirection (URL)
+/api/users: https://reqres.in/api/users
+/api/usersError: https://reqres.indd/api/users
+/services/demorequest: https://reqres.in/api/users?page=2
+
+
+  ##Sample microUI redirection (URL redirection)
+#/microUI/processmanager: http://URL
+
+  ##Sample microUI redirection (file system redirection)
+#/microUI/authorization: ../../authorization/authorizationUI # URL or relative file path(relative to root)
+
+
+
+  ##Sample symphony qjson redirection
+#/moneytransfer/qjsonfunc: http://localhost:3001/moneytransfer/qjsonfunc

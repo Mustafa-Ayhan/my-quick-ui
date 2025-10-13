@@ -1,0 +1,29 @@
+let pjson = {
+	"pJson": [],
+	"cJson": [],
+	"lrids": {
+		"tr-TR": {
+			"sampleGlobalLRKey": "'Örnek global metin'",
+			"userName": "'Kullanıcı Adı:'",
+			"userSurname": "'Kullanıcı Soyadı:'"
+		},
+		"en-US": {
+			"sampleGlobalLRKey": "'Sample global text'",
+			"userName": "'User Name:'",
+			"userSurname": "'User Surname:'"
+		}
+	},
+	"clrids": {
+		"tr-TR": {
+			"sampleGlobalLRKey": "╬'Örnek global metin'╩╩",
+			"userName": "╬'Kullanıcı Adı:'╩╩",
+			"userSurname": "╬'Kullanıcı Soyadı:'╩╩"
+		},
+		"en-US": {
+			"sampleGlobalLRKey": "╬'Sample global text'╩╩",
+			"userName": "╬'User Name:'╩╩",
+			"userSurname": "╬'User Surname:'╩╩"
+		}
+	}
+};
+export default pjson
