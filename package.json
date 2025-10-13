@@ -1,0 +1,21 @@
+{
+  "name": "my-quick-ui",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "symphony-cli qui-build",
+    "link": "npm link @stechquick/quick_qui",
+    "start": "symphony-cli qui-start",
+    "quick:serve": "symphony-cli quick-serve"
+  },
+  "devDependencies": {
+    "@stechquick/qui": "3.0.27-0",
+    "@stechquick/symphony-cli": "0.5.33"
+  },
+  "author": "",
+  "license": "ISC",
+  "files": [
+    "dist"
+  ]
+}

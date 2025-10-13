@@ -1,0 +1,241 @@
+apply plugin: 'com.bmuschko.docker-remote-api'
+import com.bmuschko.gradle.docker.tasks.image.Dockerfile
+import com.bmuschko.gradle.docker.tasks.image.DockerBuildImage
+import com.bmuschko.gradle.docker.tasks.image.DockerPushImage
+import org.gradle.api.tasks.bundling.Tar
+
+buildscript {
+	ext {
+        dockerPubVersionExtentions = System.env.BUILD_NUMBER ?: "XXX"
+        dockerRegistery = System.env.DOCKER_REGISTRY ?: "gcr.io/rally"
+        dockerApiUrl = System.env.DOCKER_API_URL ?: "dummy_api_url"
+        dockerUsername = System.env.DOCKER_USERNAME ?: "dummy_docker_username"
+        dockerPassword = System.env.DOCKER_PASSWORD ?: "dummy_docker_userpass"
+    
+        appVersion = '0.0.1-SNAPSHOT'
+        
+        if (project.hasProperty('projVersion')) {
+          appVersion = project.projVersion
+        }
+    
+        dockerPubVersion = ""
+        nexusPubVersion = ""    
+        nexusPubVersion = "".concat(project.appVersion.toString())
+        dockerPubVersion = "".concat(project.appVersion.toString()).concat("-").concat(dockerPubVersionExtentions)
+        dockerMajorPubVersion = "".concat(project.appVersion.toString().tokenize('.')[0])
+        dockerMinorPubVersion = "".concat(dockerMajorPubVersion.toString()).concat(".").concat(project.appVersion.toString().tokenize('.')[1])
+        dockerIncrementalPubVersion = "".concat(dockerMinorPubVersion.toString()).concat(".").concat(project.appVersion.toString().tokenize('.')[2])
+        if (project.appVersion.endsWith('-SNAPSHOT')){
+          dockerQualifierpubVersion = "SNAPSHOT-latest"
+        }else{
+          dockerQualifierpubVersion = "RELEASE-latest"
+        } 
+	}
+	apply from: './gradle/base/repos.gradle'
+	repositories.addAll(repos)
+	dependencies {
+		classpath 'com.bmuschko:gradle-docker-plugin:3.2.4'
+	}
+}
+
+docker {
+  url = dockerApiUrl
+  registryCredentials {
+      url = 'https://' + dockerRegistery
+      username = dockerUsername
+      password = dockerPassword
+  }
+}
+
+task createNginxConfFile() {
+    new File(".", "nginx.conf").text = """user  nginx;
+    worker_processes  5;
+    #error_log  /var/log/nginx/error.log warn;
+    error_log  /var/log/nginx/error.log notice;
+    pid        /var/run/nginx.pid;
+    events {
+        worker_connections  1024;
+    }
+    http {
+        include       /etc/nginx/mime.types;
+        default_type  application/javascript;
+        charset       utf-8;
+        log_format  main  '<Remote addr>: \$remote_addr - <Remote user>: \$remote_user <Time Local>: [\$time_local] <Request>: "\$request" '
+                          '<Status>: \$status <Body Bytes Sent>: \$body_bytes_sent <Http Referrer>: "\$http_referer" '
+                          '<Http User Agent>: "\$http_user_agent" <Http X Forwarded For>: "\$http_x_forwarded_for" '
+                          '<Upstream Address>: "\$upstream_addr" ';
+        access_log  /var/log/nginx/access.log  main;
+        sendfile        on;
+        #tcp_nopush     on;
+        keepalive_timeout  65;
+        #gzip  on;
+        server {
+            listen       80;
+            server_name _;
+            client_max_body_size 300M;
+            root   /wwwroot/client;
+            gzip on;
+            gzip_vary on;
+            gzip_min_length 250;
+            gzip_comp_level 2;
+            gzip_proxied no-cache no-store private expired auth;
+            gzip_types text/plain text/css text/xml text/javascript application/javascript application/x-javascript application/xml application/json application/octet-stream;
+            gzip_disable "MSIE [1-6]\\.";
+            # Forward Rally Microservice calls to api gateway
+            location ~ (*UTF8)^/services/(.*)\$ {
+                resolver \${DNS_RESOLVER_ADDRESSES} valid=5s;
+                add_header X-debug-message \${HTTP_PROTOCOL}://\${APIGATEWAY_NAME}.\${NAMESPACE}.\${SVCDOMAIN}/\$1\$is_args\$args always;
+                proxy_set_header X-Forwarded-For \$proxy_add_x_forwarded_for;
+                proxy_pass \${HTTP_PROTOCOL}://\${APIGATEWAY_NAME}.\${NAMESPACE}.\${SVCDOMAIN}/\$1\$is_args\$args;
+                }
+            location ~ ^/microui/(\\w+.)/(\\w+.*)\\.?.*\$ {
+                resolver \${DNS_RESOLVER_ADDRESSES} valid=5s;
+                proxy_set_header X-Forwarded-For \$proxy_add_x_forwarded_for;
+                proxy_pass \${HTTP_PROTOCOL}://\$1-ui.\${NAMESPACE}.\${SVCDOMAIN}/microui/\$1/\$2;
+                }
+            # Host local resources from nginx
+            location / {
+                try_files \$uri \$uri/ /index.html;
+                #proxy_set_header X-Forwarded-For \$proxy_add_x_forwarded_for;
+                #proxy_set_header Host \$http_host;
+                #proxy_redirect off;
+                root   /wwwroot/client;
+                index  index.html index.htm;
+            }
+            error_page 404 /;
+        }
+    }"""
+}
+
+task createDockerfile(type: Dockerfile) {
+  dependsOn createNginxConfFile
+  destFile = project.file('dockerbuild/Dockerfile')
+  from 'nginx:1.14.0'
+  maintainer 'Rally Architecture Team'
+  runCommand 'mkdir /wwwroot'
+  addFile '/dist', '/wwwroot'
+  copyFile 'nginx.conf', '/etc/nginx'
+
+  //entryPoint('service','nginx','start')
+  entryPoint("nginx", "-g", "daemon off;")
+}
+
+task buildDocker(type: DockerBuildImage) {
+  dependsOn createDockerfile
+  inputDir file('dockerbuild')
+  tags = ["".concat(dockerRegistery).concat("/rally/"+rootProject.name+":").concat(dockerPubVersion.toString()),
+          "".concat(dockerRegistery).concat("/rally/"+rootProject.name+":").concat(dockerMajorPubVersion.toString()),
+          "".concat(dockerRegistery).concat("/rally/"+rootProject.name+":").concat(dockerMinorPubVersion.toString()),
+          "".concat(dockerRegistery).concat("/rally/"+rootProject.name+":").concat(dockerIncrementalPubVersion.toString()),                    
+          "".concat(dockerRegistery).concat("/rally/"+rootProject.name+":").concat(dockerQualifierpubVersion.toString()),
+          "".concat(dockerRegistery).concat("/rally/"+rootProject.name+":").concat("latest")]
+  doFirst {
+    copy {
+      from file('dist')
+      into file('dockerbuild/dist')
+    }
+    copy {
+      from file('./nginx.conf')
+      into file('dockerbuild')
+    }
+  }
+}
+
+task pushTask(type: DockerPushImage) {
+  dependsOn buildDocker
+  imageName = "".concat(dockerRegistery).concat("/rally/"+rootProject.name)
+  tag = "".concat(dockerPubVersion.toString())
+}
+
+task dockerMajorPush(type: DockerPushImage) {
+  dependsOn pushTask
+  imageName = "".concat(dockerRegistery).concat("/rally/"+rootProject.name)
+  tag = "".concat(dockerMajorPubVersion.toString())
+}
+
+task dockerMinorPush(type: DockerPushImage) {
+  dependsOn dockerMajorPush
+  imageName = "".concat(dockerRegistery).concat("/rally/"+rootProject.name)
+  tag = "".concat(dockerMinorPubVersion.toString())
+}
+
+task dockerIncrementalPush(type: DockerPushImage) {
+  dependsOn dockerMinorPush
+  imageName = "".concat(dockerRegistery).concat("/rally/"+rootProject.name)
+  tag = "".concat(dockerIncrementalPubVersion.toString())
+}
+
+task dockerQualifierPush(type: DockerPushImage) {
+  dependsOn dockerIncrementalPush
+  imageName = "".concat(dockerRegistery).concat("/rally/"+rootProject.name)
+  tag = "".concat(dockerQualifierpubVersion.toString())
+}
+
+task dockerPublish(type: DockerPushImage) {
+  dependsOn dockerQualifierPush
+  imageName = "".concat(dockerRegistery).concat("/rally/"+rootProject.name)
+  tag = "latest"
+}
+
+task tarDist(type: Tar) {
+  baseName rootProject.name+'-'.concat(nexusPubVersion.toString())
+  destinationDir = file('build/distributions')
+  destinationDir = file('build/distributions')
+  extension = 'tgz'
+  compression = Compression.GZIP
+  from('dist') {
+    into('/')
+  }
+}
+
+task sourceZipDist(type: Zip) {
+    baseName = rootProject.name+'-source-'.concat(nexusPubVersion.toString())
+    destinationDir = file('build/distributions')
+
+  from('.') {
+    exclude(".git")
+    exclude(".gradle")
+    exclude("build")
+    exclude("dist")
+    exclude("package-lock.json")
+    exclude("node_modules")
+    exclude("Jenkinsfile")
+    exclude("jenkins.analysismode")
+    exclude("jenkins.cclist")
+    exclude("jenkins.commitid")
+    exclude("jenkins.committeremail")
+    exclude("jenkins.committername")
+    exclude("jenkins.gitbranchname")
+    exclude("jenkins.gitlabcommitterlistapiresponse")
+    exclude("jenkins.gitlabprojectid")
+    exclude("jenkins.gitlabsearchapiresponse")
+    into('/')
+  }
+}
+
+apply plugin: 'maven-publish'
+
+def mvnInfo = mvnCommonsPublishRepo
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            groupId 'rally'
+            artifactId rootProject.name
+            version "".concat(nexusPubVersion.toString())
+            artifact tarDist
+            artifact sourceZipDist {
+                classifier "source"
+            } 
+        }
+    }
+
+    repositories {
+        maven {
+            url mvnInfo.url
+            credentials {
+                username = mvnInfo.username
+                password = mvnInfo.password
+            }
+        }
+    }
+}

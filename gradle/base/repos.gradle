@@ -1,0 +1,93 @@
+def profile = findProperty('profile') ?: System.getenv('GRADLE_PROFILE')
+if(! profile) {
+    profile = 'cloud'
+}
+
+def mvnPublishPath = project.appVersion.endsWith('-SNAPSHOT') ? "snapshots" : "releases"
+
+
+ext.mvnUser = findProperty('mvnUser') ?: System.getenv('MAVEN_USER')
+ext.mvnPassword = findProperty('mvnPassword') ?: System.getenv('MAVEN_PWD')
+
+if('cloud' == profile) {
+    def nexusURL = System.getenv('NEXUS_URL') ?: 'http://nexus.rally.softtech'
+
+    if(! ext.mvnUser) {
+        ext.mvnUser = 'uploader'
+    }
+    if(! ext.mvnPassword) {
+        ext.mvnPassword = 'S@FTt_ch81112!?'
+    }
+
+    ext {
+        mvnPublicRepo = [
+            'url' : "$nexusURL/repository/public/",
+            'username' : mvnUser,
+            'password' : mvnPassword
+        ]
+        rallyPublicRepo = mvnPublicRepo
+
+        mvnCommonsPublishRepo = [
+            'url' : "$nexusURL/repository/maven-${mvnPublishPath}/",
+            'username' : mvnUser,
+            'password' : mvnPassword
+        ]
+        mvnPublishRepo = mvnCommonsPublishRepo
+    }
+
+    // define how the dependencies are resolved
+    repositories {
+        mavenLocal()  
+        maven {
+            name 'cloudNexus'
+            url mvnPublicRepo.url
+            credentials {
+                username mvnPublicRepo.username
+                password mvnPublicRepo.password
+            }
+        }
+    }
+} else if('local' == profile) {
+    def nexusURL = 'http://10.87.13.123:8888/nexus'
+
+    if(! ext.mvnUser) {
+        ext.mvnUser = 'deployment'
+    }
+    if(! ext.mvnPassword) {
+        ext.mvnPassword = 'deployment123'
+    }
+
+    ext {
+        mvnPublicRepo = [
+            'url' : 'http://10.80.20.46/repository/maven-public/',
+            'username' : '',
+            'password' : ''
+        ]
+        rallyPublicRepo = [
+            'url' : "${nexusURL}/content/repositories/releases/",
+            'username' : '',
+            'password' : ''
+        ]    
+        mvnCommonsPublishRepo = [
+            'url' : "${nexusURL}/content/repositories/releases/",
+            'username' : mvnUser,
+            'password' : mvnPassword
+        ]
+        mvnPublishRepo = mvnCommonsPublishRepo
+    }
+
+    // define how the dependencies are resolved
+    repositories {
+        mavenLocal()    
+        maven {
+            name 'nexusIsbank'
+            url mvnPublicRepo.url
+        }
+        maven {
+            name 'nexusRally'
+            url rallyPublicRepo.url
+        }
+    }
+}
+
+ext.repos = repositories
