@@ -1,2 +1,0 @@
-let pjson = {"clrids":{"tr-TR":{"asd":"╬'Turkish'╩╩"},"en-US":{"asd":"╬'English'╩╩"}},"lrids":{"tr-TR":{"asd":"'Turkish'"},"en-US":{"asd":"'English'"}},"cJson":[],"opt":{"V":2.2},"pJson":[]};
-export default pjson;
