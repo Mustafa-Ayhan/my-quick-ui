@@ -1,0 +1,141 @@
+csspath:
+  - /settings/css/asd.css
+globalLocalizationqjson: /settings/qjson/globalLocalization.qjson
+rootqjson: /static/qwe.qjson
+fileMap:
+  - id: fvo82nsl-a9tv-kiyq-tk2n-5060mfwi78wx
+    path: /static
+    name: /shadowTest2.qjson
+    version: 'Mon Sep 29 2025 17:25:31 GMT+0300 (GMT+03:00)'
+  - id: 68vovx0x-70d3-qzst-3y68-1sg0mdormqxy
+    path: /static
+    name: /App Settings.appSettings
+    version: 'Thu Oct 02 2025 17:29:04 GMT+0300 (GMT+03:00)'
+  - id: 9kribsnc-cfbp-odsi-6mzm-eps0mdq243cw
+    path: /static
+    name: /qwe.qjson
+    version: 'Thu Oct 02 2025 17:29:04 GMT+0300 (GMT+03:00)'
+  - id: 4gqm2ha7-8c8l-ie38-mk0q-q770mf282jjh
+    path: /static
+    name: /test.qjson
+    version: 'Thu Oct 02 2025 16:59:02 GMT+0300 (GMT+03:00)'
+  - id: 815dw0j9-b2l3-s4kv-mcjy-vbb0mf6tcq31
+    path: /settings/css
+    name: /asd.css
+    version: 'Fri Sep 26 2025 04:25:43 GMT+0300 (GMT+03:00)'
+  - id: n9udppfm-qmk9-4z3y-su30-czv0mg9iqoa0
+    path: /static
+    name: /zxc.qjson
+    version: 'Thu Oct 02 2025 17:37:01 GMT+0300 (GMT+03:00)'
+siteTitle: 2ed2
+useShadowDOM: false
+appSettings:
+  general:
+    siteTitle: 2ed2
+    useShadowDOM: true
+  themeSettings:
+    defaultTheme: Theme1
+    themes:
+      - name: Theme1
+        lightTheme:
+          colors:
+            - name: Background
+              allowGradient: true
+              color: '#FFFFFF'
+            - name: Text
+              allowGradient: false
+              color: '#212121'
+            - name: Primary
+              allowGradient: false
+              color: '#151233'
+            - name: Secondary
+              allowGradient: false
+              color: '#FD454C'
+            - name: Tertiary
+              allowGradient: false
+              color: '#007C77'
+            - name: Passive
+              allowGradient: false
+              color: '#7A95B0'
+            - name: Info
+              allowGradient: false
+              color: '#03A9F4'
+            - name: Success
+              allowGradient: false
+              color: '#00BB41'
+            - name: Warning
+              allowGradient: false
+              color: '#F3CA40'
+            - name: Error
+              allowGradient: false
+              color: '#F44336'
+          fonts:
+            - fontClassName: Default
+              configs:
+                fontFamily: Roboto
+                fontColor: '#000000'
+                fontSize: 16px
+                displayWeight: Regular - 400
+                fontWeight: '400'
+                combinedFont: Roboto-Regular
+                fontStyle: normal
+                fontOptions: []
+            - fontClassName: Heading 1
+              configs:
+                fontFamily: Raleway
+                fontColor: '#000000'
+                fontSize: 24px
+                displayWeight: Regular - 400
+                fontWeight: '400'
+                combinedFont: Raleway-Regular
+                fontStyle: normal
+                fontOptions: []
+            - fontClassName: Heading 2
+              configs:
+                fontFamily: Roboto Italic
+                fontColor: '#000000'
+                fontSize: 16px
+                displayWeight: Regular - 400
+                fontWeight: '400'
+                combinedFont: Roboto-RegularItalic
+                fontStyle: Italic
+                fontOptions: []
+            - fontClassName: Heading 3
+              configs:
+                fontFamily: Roboto
+                fontColor: '#000000'
+                fontSize: 12px
+                displayWeight: Regular - 400
+                fontWeight: '400'
+                combinedFont: Roboto-Regular
+                fontStyle: normal
+                fontOptions: []
+            - fontClassName: Paragraph
+              configs:
+                fontFamily: Nunito
+                fontColor: '#000000'
+                fontSize: 12px
+                displayWeight: Regular - 400
+                fontWeight: '400'
+                combinedFont: Roboto-Regular
+                fontStyle: normal
+                fontOptions: []
+            - fontClassName: Info
+              configs:
+                fontFamily: Roboto
+                fontColor: '#000000'
+                fontSize: 12px
+                displayWeight: Regular - 400
+                fontWeight: '400'
+                combinedFont: Roboto-Regular
+                fontStyle: normal
+                fontOptions: []
+    themeModelId: 83wxsb24-m2cq-3pgz-7ypn-4ko0mdq2tm24
+  globalLocalization: '<<globalLocalization:dp807uyx-gx0p-fpk2-4xm9-e0i0mf44sixx>>'
+versions:
+  pageVersions:
+    static:
+      qwe.qjson: '2025-10-14T00:10:36.1470'
+      shadowTest2.qjson: '2025-10-14T00:10:36.1470'
+      test.qjson: '2025-10-14T00:10:36.1470'
+      zxc.qjson: '2025-10-14T00:10:36.1470'
