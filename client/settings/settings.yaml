@@ -135,7 +135,7 @@ appSettings:
 versions:
   pageVersions:
     static:
-      qwe.qjson: '2025-10-14T00:10:36.1470'
-      shadowTest2.qjson: '2025-10-14T00:10:36.1470'
-      test.qjson: '2025-10-14T00:10:36.1470'
-      zxc.qjson: '2025-10-14T00:10:36.1470'
+      qwe.qjson: '2025-10-14T00:13:06.6690'
+      shadowTest2.qjson: '2025-10-14T00:13:06.6690'
+      test.qjson: '2025-10-14T00:13:06.6690'
+      zxc.qjson: '2025-10-14T00:13:06.6690'
