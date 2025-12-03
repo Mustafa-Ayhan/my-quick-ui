@@ -6,6 +6,7 @@ import { ICreatedComponent } from "../../../../common/shrimp/interfaces/Componen
 import { IDictionary } from "../../../../common/shrimp/interfaces/IDictionary";
 import { IContainerServicesWrapper } from "../../../../common/shrimp/interfaces/quick/IContainerServices";
 import { IWebSDKSettingsWrapper } from "../../../../common/shrimp/interfaces/quick/IWebSDK";
+import { VTextFieldFormattingExtensionData } from "../managers/extension/extensionData/VTextFieldFormattingExtensionData";
 export declare class ComponentInstanceTracker implements IComponentInstanceTracker {
     contextName: string;
     private servicesWrapper;
@@ -35,6 +36,6 @@ export declare class ComponentInstanceTracker implements IComponentInstanceTrack
      * Listen component dom changes on this method
      * @returns key fields
      */
-    static componentDOMListeners(): Record<string, (componentCollection: IComponentCollection) => void>;
+    static componentDOMListeners(extensionData: VTextFieldFormattingExtensionData): Record<string, (componentCollection: IComponentCollection) => void>;
 }
 //# sourceMappingURL=ComponentInstanceTrackerImpl.d.ts.map

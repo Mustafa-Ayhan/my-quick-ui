@@ -3,8 +3,10 @@ import { ICreatedComponent } from "../../../../../../common/shrimp/interfaces/Co
 import { IDictionary } from "../../../../../../common/shrimp/interfaces/IDictionary";
 import { ComponentTarget } from "../../providers/ComponentProvider";
 import 'chartjs-adapter-date-fns';
+import { ContextManager } from "../../../../../../common/shrimp/context";
 export declare class ChartComponentManager {
-    constructor();
+    readonly websdkContext: ContextManager;
+    constructor(websdkContext: ContextManager);
     createChildTypeChartComponent(props: IDictionary<any>, target: ComponentTarget, componentName: string, parentInstance: any): {
         instance: any;
         el: import("../../common/shrimp/interfaces/RenderingInterfaces/IDomElement").IDomElement;
@@ -14,15 +16,20 @@ export declare class ChartComponentManager {
         retVal: ICreatedComponent;
     };
     private createInnerChart;
+    isShadowDOMEnabled(): boolean | undefined;
+    chartResizer(chart: any, container: any): void;
     private chartOptions;
+    private applyPointPropsToDataset;
     private chartYTicksFont;
     private chartYPropSetter;
+    private chartY1PropSetter;
     private chartXTicksFont;
     private chartXPropSetter;
     private chartXTimePropSetter;
     private chartXTimeDisplayFormatsPropSetter;
     private chartDataLabelsPropSetter;
     private chartDataLabelsPaddingPropSetter;
+    private buildLegendFontSpec;
     private chartDataLabelsFontPropSetter;
     private chartPropSetter;
     private getDoughnutInsideTextPlugin;

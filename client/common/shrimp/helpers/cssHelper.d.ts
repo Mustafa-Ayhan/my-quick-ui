@@ -1,3 +1,8 @@
+declare global {
+    interface Document {
+        getPlateauShadowRoot: (returnValue?: any) => ShadowRoot | any;
+    }
+}
 export declare class CssHelper {
     static IncludeCSS(cssPath: string, options: {
         type: "after";
