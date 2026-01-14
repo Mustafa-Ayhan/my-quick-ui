@@ -1,0 +1,630 @@
+let pjson = {
+	"pJson": [
+		{
+			"T": "Messaging",
+			"P": {
+				"ID": {
+					"H": "PageComp",
+					"T": "prop"
+				},
+				"triggerOnRestored": {
+					"H": "false",
+					"T": "prop"
+				}
+			},
+			"E": {},
+			"C": {},
+			"_Editor": {
+				"eID": "EdtrComp_1"
+			},
+			"O": {
+				"cType": "child"
+			},
+			"S": {
+				"xs-xl": {
+					"pageBackgroundColor": "#ffffff",
+					"statusBarColor": "#ffffff"
+				}
+			}
+		},
+		{
+			"T": "VBtn",
+			"P": {
+				"ID": {
+					"H": "EdtrComp_6",
+					"T": "prop"
+				},
+				"depressed": {
+					"H": "true",
+					"T": "prop"
+				},
+				"visible": {
+					"H": "true",
+					"T": "prop"
+				}
+			},
+			"E": {
+				"click": {
+					"H": "components.EdtrComp_3.qValue = true;",
+					"P": "mouseEvent:unknown | undefined",
+					"HL": "TS"
+				}
+			},
+			"C": {
+				"default": {
+					"c": [
+						{
+							"T": "QLabel",
+							"C": {},
+							"E": {},
+							"P": {
+								"ID": {
+									"H": "EdtrComp_9",
+									"T": "prop"
+								},
+								"text": {
+									"H": "'Test Button'",
+									"T": "prop"
+								}
+							},
+							"_Editor": {
+								"eID": "EdtrComp_9"
+							},
+							"O": {
+								"cType": "child"
+							},
+							"S": {
+								"xs-xl": {
+									"marginTop": "",
+									"marginRight": "",
+									"marginBottom": "",
+									"marginLeft": "",
+									"paddingTop": "",
+									"paddingRight": "",
+									"paddingBottom": "",
+									"paddingLeft": "",
+									"fontColor": "#000000",
+									"fontFamily": "Roboto",
+									"fontSize": "16px",
+									"fontStyle": "normal",
+									"fontWeight": "400",
+									"combinedFont": "Roboto-Regular",
+									"ThemeFont": "Custom",
+									"lineHeight": "20px",
+									"textAlign": "left",
+									"textDecorationLine": "none",
+									"textDecorationStyle": "solid",
+									"textDecorationColor": "#000000"
+								}
+							}
+						}
+					],
+					"cType": "slot"
+				}
+			},
+			"_Editor": {
+				"eID": "EdtrComp_6"
+			},
+			"S": {
+				"xs-xl": {
+					"marginTop": "",
+					"marginRight": "",
+					"marginBottom": "",
+					"marginLeft": "",
+					"paddingTop": "",
+					"paddingRight": "16px",
+					"paddingBottom": "",
+					"paddingLeft": "16px",
+					"width": "",
+					"height": "",
+					"maxWidth": "",
+					"maxHeight": "",
+					"minWidth": "",
+					"minHeight": "",
+					"unlink": "false",
+					"unlinkMax": "false",
+					"unlinkMin": "false",
+					"isSizeCollapsed": "false",
+					"fontColor": "_Heading 1.fontColor_",
+					"fontFamily": "_Heading 1.fontFamily_",
+					"fontSize": "_Heading 1.fontSize_",
+					"fontStyle": "_Heading 1.fontStyle_",
+					"fontWeight": "_Heading 1.fontWeight_",
+					"combinedFont": "_Heading 1.combinedFont_",
+					"ThemeFont": "_Heading 1_",
+					"lineHeight": "20px",
+					"backgroundColor": "#1976D2",
+					"disabledBackgroundColor": "rgba(0,0,0,.12)",
+					"hoverColor": "#000000",
+					"boxShadow": "",
+					"boxSizing": "",
+					"borderTopStyle": "solid",
+					"borderRightStyle": "solid",
+					"borderBottomStyle": "solid",
+					"borderLeftStyle": "solid",
+					"borderTopLeftRadius": "4px",
+					"borderTopRightRadius": "4px",
+					"borderBottomLeftRadius": "4px",
+					"borderBottomRightRadius": "4px",
+					"borderTopWidth": "0px",
+					"borderRightWidth": "0px",
+					"borderBottomWidth": "0px",
+					"borderLeftWidth": "0px",
+					"defaultBorderColor": "",
+					"sides": "Top,Right,Bottom,Left"
+				}
+			},
+			"SC": {
+				"fontColor": {
+					"VIcon": "iconColor",
+					"QLabel": "fontColor"
+				},
+				"fontStyle": {
+					"QLabel": "fontStyle"
+				},
+				"fontSize": {
+					"QLabel": "fontSize"
+				},
+				"fontFamily": {
+					"QLabel": "fontFamily"
+				},
+				"fontWeight": {
+					"QLabel": "fontWeight"
+				},
+				"combinedFont": {
+					"QLabel": "combinedFont"
+				},
+				"lineHeight": {
+					"QLabel": "lineHeight"
+				},
+				"bacgroundColor": {
+					"VIcon": "backgroundColor"
+				}
+			},
+			"O": {
+				"cType": "slot"
+			}
+		},
+		{
+			"T": "VDialog",
+			"P": {
+				"ID": {
+					"H": "EdtrComp_3",
+					"T": "prop"
+				},
+				"eager": {
+					"H": "true",
+					"T": "prop"
+				},
+				"visible": {
+					"H": "true",
+					"T": "prop"
+				}
+			},
+			"E": {
+				"click:outside": {
+					"H": "components.EdtrComp_3.qValue = false;",
+					"HL": "TS"
+				}
+			},
+			"C": {
+				"default": {
+					"c": [
+						{
+							"T": "CustomComponent",
+							"P": {
+								"ID": {
+									"H": "EdtrComp_5",
+									"T": "prop"
+								},
+								"QJsonPath": {
+									"H": "'/static/frame1.qjson'",
+									"T": "prop",
+									"HL": "QS"
+								}
+							},
+							"E": {},
+							"C": {
+								"default": {
+									"c": [
+										{
+											"T": "Ghost",
+											"P": {
+												"ID": {
+													"H": "EdtrComp_7",
+													"T": "prop"
+												}
+											},
+											"E": {},
+											"C": {},
+											"_Editor": {
+												"eID": "EdtrComp_7"
+											},
+											"O": {
+												"cType": "child"
+											}
+										}
+									],
+									"cType": "child"
+								}
+							},
+							"_Editor": {
+								"eID": "EdtrComp_5"
+							},
+							"O": {
+								"cType": "child",
+								"dynProps": true
+							}
+						}
+					],
+					"cType": "slot"
+				}
+			},
+			"_Editor": {
+				"eID": "EdtrComp_3"
+			},
+			"S": {
+				"xs-xl": {
+					"marginTop": "",
+					"marginRight": "",
+					"marginBottom": "",
+					"marginLeft": "",
+					"paddingTop": "",
+					"paddingRight": "",
+					"paddingBottom": "",
+					"paddingLeft": "",
+					"width": "",
+					"height": "",
+					"maxWidth": "",
+					"maxHeight": "",
+					"minWidth": "",
+					"minHeight": "",
+					"unlink": "false",
+					"unlinkMax": "false",
+					"unlinkMin": "false",
+					"isSizeCollapsed": "false",
+					"backgroundColor": "#FFFFFF",
+					"boxShadow": "",
+					"boxSizing": "",
+					"borderTopStyle": "solid",
+					"borderRightStyle": "solid",
+					"borderBottomStyle": "solid",
+					"borderLeftStyle": "solid",
+					"borderTopLeftRadius": "4px",
+					"borderTopRightRadius": "4px",
+					"borderBottomLeftRadius": "4px",
+					"borderBottomRightRadius": "4px",
+					"borderTopWidth": "0px",
+					"borderRightWidth": "0px",
+					"borderBottomWidth": "0px",
+					"borderLeftWidth": "0px",
+					"defaultBorderColor": "",
+					"sides": "Top,Right,Bottom,Left"
+				}
+			},
+			"O": {
+				"cType": "slot"
+			}
+		}
+	],
+	"cJson": [
+		{
+			"T": "Messaging",
+			"P": {
+				"ID": {
+					"H": "PageComp",
+					"T": "prop"
+				},
+				"triggerOnRestored": {
+					"H": "╬false╩╩",
+					"T": "prop"
+				}
+			},
+			"E": {},
+			"C": {},
+			"_Editor": {
+				"eID": "EdtrComp_1"
+			},
+			"O": {
+				"cType": "child",
+				"compDomClasses": "newDropBorder"
+			},
+			"S": {
+				"xs-xl": {
+					"pageBackgroundColor": "#ffffff",
+					"statusBarColor": "#ffffff"
+				}
+			}
+		},
+		{
+			"T": "VBtn",
+			"P": {
+				"ID": {
+					"H": "EdtrComp_6",
+					"T": "prop"
+				},
+				"depressed": {
+					"H": "╬true╩╩",
+					"T": "prop"
+				},
+				"visible": {
+					"H": "╬true╩╩",
+					"T": "prop"
+				}
+			},
+			"E": {
+				"click": {
+					"H": "Object.defineProperty(exports, \"__esModule\", { value: true });\r\ncomponents.EdtrComp_3.qValue = true;\r\n",
+					"P": "mouseEvent:unknown | undefined",
+					"HL": "JS"
+				}
+			},
+			"C": {
+				"default": {
+					"c": [
+						{
+							"T": "QLabel",
+							"C": {},
+							"E": {},
+							"P": {
+								"ID": {
+									"H": "EdtrComp_9",
+									"T": "prop"
+								},
+								"text": {
+									"H": "╬'Test Button'╩╩",
+									"T": "prop"
+								}
+							},
+							"_Editor": {
+								"eID": "EdtrComp_9"
+							},
+							"O": {
+								"cType": "child",
+								"compDomClasses": "q-label newDropBorder"
+							},
+							"S": {
+								"xs-xl": {
+									"marginTop": "",
+									"marginRight": "",
+									"marginBottom": "",
+									"marginLeft": "",
+									"paddingTop": "",
+									"paddingRight": "",
+									"paddingBottom": "",
+									"paddingLeft": "",
+									"ThemeFont": "Custom",
+									"textAlign": "left",
+									"textDecorationLine": "none",
+									"textDecorationStyle": "solid",
+									"textDecorationColor": "#000000",
+									"fontColor": "#000000",
+									"fontStyle": "italic",
+									"fontSize": "24px",
+									"fontFamily": "Source Sans Pro ",
+									"fontWeight": "900",
+									"combinedFont": "SourceSansPro-BlackItalic",
+									"lineHeight": "20px"
+								}
+							}
+						}
+					],
+					"cType": "slot"
+				}
+			},
+			"_Editor": {
+				"eID": "EdtrComp_6"
+			},
+			"S": {
+				"xs-xl": {
+					"marginTop": "",
+					"marginRight": "",
+					"marginBottom": "",
+					"marginLeft": "",
+					"paddingTop": "",
+					"paddingRight": "16px",
+					"paddingBottom": "",
+					"paddingLeft": "16px",
+					"width": "",
+					"height": "",
+					"maxWidth": "",
+					"maxHeight": "",
+					"minWidth": "",
+					"minHeight": "",
+					"unlink": "false",
+					"unlinkMax": "false",
+					"unlinkMin": "false",
+					"isSizeCollapsed": "false",
+					"fontColor": "_Heading 1.fontColor_",
+					"fontFamily": "_Heading 1.fontFamily_",
+					"fontSize": "_Heading 1.fontSize_",
+					"fontStyle": "_Heading 1.fontStyle_",
+					"fontWeight": "_Heading 1.fontWeight_",
+					"combinedFont": "_Heading 1.combinedFont_",
+					"ThemeFont": "_Heading 1_",
+					"lineHeight": "20px",
+					"backgroundColor": "#1976D2",
+					"disabledBackgroundColor": "rgba(0,0,0,.12)",
+					"hoverColor": "#000000",
+					"boxShadow": "",
+					"boxSizing": "",
+					"borderTopStyle": "solid",
+					"borderRightStyle": "solid",
+					"borderBottomStyle": "solid",
+					"borderLeftStyle": "solid",
+					"borderTopLeftRadius": "4px",
+					"borderTopRightRadius": "4px",
+					"borderBottomLeftRadius": "4px",
+					"borderBottomRightRadius": "4px",
+					"borderTopWidth": "0px",
+					"borderRightWidth": "0px",
+					"borderBottomWidth": "0px",
+					"borderLeftWidth": "0px",
+					"defaultBorderColor": "",
+					"sides": "Top,Right,Bottom,Left"
+				}
+			},
+			"SC": {
+				"fontColor": {
+					"VIcon": "iconColor",
+					"QLabel": "fontColor"
+				},
+				"fontStyle": {
+					"QLabel": "fontStyle"
+				},
+				"fontSize": {
+					"QLabel": "fontSize"
+				},
+				"fontFamily": {
+					"QLabel": "fontFamily"
+				},
+				"fontWeight": {
+					"QLabel": "fontWeight"
+				},
+				"combinedFont": {
+					"QLabel": "combinedFont"
+				},
+				"lineHeight": {
+					"QLabel": "lineHeight"
+				},
+				"bacgroundColor": {
+					"VIcon": "backgroundColor"
+				}
+			},
+			"O": {
+				"cType": "slot",
+				"compDomClasses": "v-btn v-btn--depressed theme--light v-size--default newDropBorder"
+			}
+		},
+		{
+			"T": "VDialog",
+			"P": {
+				"ID": {
+					"H": "EdtrComp_3",
+					"T": "prop"
+				},
+				"eager": {
+					"H": "╬true╩╩",
+					"T": "prop"
+				},
+				"visible": {
+					"H": "╬true╩╩",
+					"T": "prop"
+				}
+			},
+			"E": {
+				"click:outside": {
+					"H": "Object.defineProperty(exports, \"__esModule\", { value: true });\r\n;\r\ncomponents.EdtrComp_3.qValue = false;\r\n",
+					"HL": "JS"
+				}
+			},
+			"C": {
+				"default": {
+					"c": [
+						{
+							"T": "CustomComponent",
+							"P": {
+								"ID": {
+									"H": "EdtrComp_5",
+									"T": "prop"
+								},
+								"QJsonPath": {
+									"H": "╬'/static/frame1.qjson'╩╩",
+									"T": "prop",
+									"HL": "QS"
+								}
+							},
+							"E": {},
+							"C": {
+								"default": {
+									"c": [
+										{
+											"T": "Ghost",
+											"P": {
+												"ID": {
+													"H": "EdtrComp_7",
+													"T": "prop"
+												}
+											},
+											"E": {},
+											"C": {},
+											"_Editor": {
+												"eID": "EdtrComp_7"
+											},
+											"O": {
+												"cType": "child",
+												"compDomClasses": "editor-ghost-comp"
+											}
+										}
+									],
+									"cType": "child"
+								}
+							},
+							"_Editor": {
+								"eID": "EdtrComp_5"
+							},
+							"O": {
+								"cType": "child",
+								"dynProps": true,
+								"compDomClasses": ""
+							}
+						}
+					],
+					"cType": "slot"
+				}
+			},
+			"_Editor": {
+				"eID": "EdtrComp_3"
+			},
+			"S": {
+				"xs-xl": {
+					"marginTop": "",
+					"marginRight": "",
+					"marginBottom": "",
+					"marginLeft": "",
+					"paddingTop": "",
+					"paddingRight": "",
+					"paddingBottom": "",
+					"paddingLeft": "",
+					"width": "",
+					"height": "",
+					"maxWidth": "",
+					"maxHeight": "",
+					"minWidth": "",
+					"minHeight": "",
+					"unlink": "false",
+					"unlinkMax": "false",
+					"unlinkMin": "false",
+					"isSizeCollapsed": "false",
+					"backgroundColor": "#FFFFFF",
+					"boxShadow": "",
+					"boxSizing": "",
+					"borderTopStyle": "solid",
+					"borderRightStyle": "solid",
+					"borderBottomStyle": "solid",
+					"borderLeftStyle": "solid",
+					"borderTopLeftRadius": "4px",
+					"borderTopRightRadius": "4px",
+					"borderBottomLeftRadius": "4px",
+					"borderBottomRightRadius": "4px",
+					"borderTopWidth": "0px",
+					"borderRightWidth": "0px",
+					"borderBottomWidth": "0px",
+					"borderLeftWidth": "0px",
+					"defaultBorderColor": "",
+					"sides": "Top,Right,Bottom,Left"
+				}
+			},
+			"O": {
+				"cType": "slot",
+				"compDomClasses": "newDropBorder"
+			}
+		}
+	],
+	"lrids": {},
+	"clrids": {},
+	"opt": {
+		"V": 2.2
+	}
+};
+export default pjson

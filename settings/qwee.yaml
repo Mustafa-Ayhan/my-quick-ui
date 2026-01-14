@@ -1,0 +1,97 @@
+---
+Backend: Rally32
+PredefinedBackendHeaders:
+  Rally:
+    Content-Type:
+      overwrite: true
+      value: quick.store.contentType
+    userId:
+      overwrite: true
+      value: quick.store.userId
+    intUnit:
+      overwrite: false
+      value: quick.store.intUnit
+    corrr:
+      overwrite: false
+      value: quick.store.corrr
+    tenant:
+      overwrite: false
+      value: quick.store.tenant
+DomainModuleList:
+Header:
+  Content-Type:
+    overwrite: true
+    value: test1
+  userId:
+    overwrite: false
+    value: test2
+  corrr:
+    overwrite: false
+    value: test3
+HeaderExceptionList:
+  login: "/services/authorization/api/authentication/authenticate"
+regionalDefinition:
+- region: tr
+  FormattingDefinition:
+    groupSeparator:
+      overwrite: true
+      value: "."
+    radixPoint:
+      overwrite: true
+      value: ","
+    digits:
+      overwrite: false
+      value: 2
+    enforceDigitsOnBlur:
+      overwrite: true
+      value: true
+    longDateFormat: 
+      overwrite: true
+      value: "DD-MM-YYYY HH-MM"
+    longTimeFormat: 
+      overwrite: true
+      value: "HH-MM-SS"
+    shortTimeFormat: 
+      overwrite: true
+      value: "HH-MM"
+    moneyFormat: 
+      overwrite: true
+      value: "en-US"
+    serviceDateFormat:
+      overwrite: true
+      value: 'YYYY-MM-DDTHH:mm:ss.SSS[Z]'
+    displayDateFormat:
+      overwrite: true
+      value: 'dd/MM/yyyy'
+- region: en
+  FormattingDefinition:
+    groupSeparator:
+      overwrite: true
+      value: "."
+    radixPoint:
+      overwrite: true
+      value: ","
+    digits:
+      overwrite: false
+      value: 3
+    enforceDigitsOnBlur:
+      overwrite: true
+      value: true
+    longDateFormat: 
+      overwrite: true
+      value: "DD-MM-YYYY HH-MM"
+    longTimeFormat: 
+      overwrite: true
+      value: "HH-MM-SS"
+    shortTimeFormat: 
+      overwrite: true
+      value: "HH-MM"
+    moneyFormat: 
+      overwrite: true
+      value: "en-US"
+    serviceDateFormat:
+      overwrite: true
+      value: 'YYYY-MM-DDTHH:mm:ss.SSS[Z]'
+    displayDateFormat:
+      overwrite: true
+      value: 'dd/MM/yyyy'

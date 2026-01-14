@@ -11,7 +11,7 @@
   },
   "devDependencies": {
     "@stechquick/qui": "3.0.27-0",
-    "@stechquick/symphony-cli": "0.5.33"
+    "@stechquick/symphony-cli": "0.6.5"
   },
   "author": "",
   "license": "ISC",
