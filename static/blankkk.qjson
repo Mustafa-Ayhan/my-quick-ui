@@ -45,7 +45,7 @@ let pjson = {
 			},
 			"E": {
 				"click": {
-					"H": "components.EdtrComp_6.QJsonPath = \"/static/testt.qjson\"",
+					"H": "components.EdtrComp_6.QJsonPath = \"<<qjson:h09wa83s-bnei-a66v-zoi5-emf0mj21p3r7>>\"",
 					"P": "mouseEvent:unknown | undefined",
 					"HL": "TS"
 				}
@@ -203,7 +203,7 @@ let pjson = {
 			},
 			"E": {
 				"click": {
-					"H": "components.EdtrComp_6.QJsonPath = \"/static/onboard.qjson\"",
+					"H": "components.EdtrComp_6.QJsonPath = \"<<qjson:w2yxkjta-ro26-62li-k8gh-xfm0mdswtp8j>>\"",
 					"P": "mouseEvent:unknown | undefined",
 					"HL": "TS"
 				}
@@ -361,7 +361,7 @@ let pjson = {
 			},
 			"E": {
 				"click": {
-					"H": "components.EdtrComp_6.QJsonPath = \"/static/Home1.qjson\"",
+					"H": "components.EdtrComp_6.QJsonPath = \"<<qjson:mdcxy6pc-fha6-na3n-no84-0hc0mj6dbrzj>>\"",
 					"P": "mouseEvent:unknown | undefined",
 					"HL": "TS"
 				}
@@ -721,7 +721,7 @@ let pjson = {
 			},
 			"E": {
 				"click": {
-					"H": "Object.defineProperty(exports, \"__esModule\", { value: true });\r\ncomponents.EdtrComp_6.QJsonPath = \"/static/testt.qjson\";\r\n",
+					"H": "Object.defineProperty(exports, \"__esModule\", { value: true });\r\ncomponents.EdtrComp_6.QJsonPath = \"<<qjson:h09wa83s-bnei-a66v-zoi5-emf0mj21p3r7>>\";\r\n",
 					"P": "mouseEvent:unknown | undefined",
 					"HL": "JS"
 				}
@@ -881,7 +881,7 @@ let pjson = {
 			},
 			"E": {
 				"click": {
-					"H": "Object.defineProperty(exports, \"__esModule\", { value: true });\r\ncomponents.EdtrComp_6.QJsonPath = \"/static/onboard.qjson\";\r\n",
+					"H": "Object.defineProperty(exports, \"__esModule\", { value: true });\r\ncomponents.EdtrComp_6.QJsonPath = \"<<qjson:w2yxkjta-ro26-62li-k8gh-xfm0mdswtp8j>>\";\r\n",
 					"P": "mouseEvent:unknown | undefined",
 					"HL": "JS"
 				}
@@ -1041,7 +1041,7 @@ let pjson = {
 			},
 			"E": {
 				"click": {
-					"H": "Object.defineProperty(exports, \"__esModule\", { value: true });\r\ncomponents.EdtrComp_6.QJsonPath = \"/static/Home1.qjson\";\r\n",
+					"H": "Object.defineProperty(exports, \"__esModule\", { value: true });\r\ncomponents.EdtrComp_6.QJsonPath = \"<<qjson:mdcxy6pc-fha6-na3n-no84-0hc0mj6dbrzj>>\";\r\n",
 					"P": "mouseEvent:unknown | undefined",
 					"HL": "JS"
 				}

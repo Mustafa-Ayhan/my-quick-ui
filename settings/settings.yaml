@@ -1,41 +1,158 @@
+---
+Backend: Rally222
+PredefinedBackendHeaders:
+  Rally:
+    Content-Type:
+      overwrite: true
+      value: quick.store.contentType
+    userId:
+      overwrite: true
+      value: quick.store.userId
+    intUnit:
+      overwrite: false
+      value: quick.store.intUnit
+    corrr:
+      overwrite: false
+      value: quick.store.corrr
+    tenant:
+      overwrite: false
+      value: quick.store.tenant
+DomainModuleList:
+Header:
+  Content-Type:
+    overwrite: true
+    value: test1
+  userId:
+    overwrite: false
+    value: test2
+  corrr:
+    overwrite: false
+    value: test3
+HeaderExceptionList:
+  login: "/services/authorization/api/authentication/authenticate"
+regionalDefinition:
+- region: tr
+  FormattingDefinition:
+    groupSeparator:
+      overwrite: true
+      value: "."
+    radixPoint:
+      overwrite: true
+      value: ","
+    digits:
+      overwrite: false
+      value: 2
+    enforceDigitsOnBlur:
+      overwrite: true
+      value: true
+    longDateFormat: 
+      overwrite: true
+      value: "DD-MM-YYYY HH-MM"
+    longTimeFormat: 
+      overwrite: true
+      value: "HH-MM-SS"
+    shortTimeFormat: 
+      overwrite: true
+      value: "HH-MM"
+    moneyFormat: 
+      overwrite: true
+      value: "en-US"
+    serviceDateFormat:
+      overwrite: true
+      value: 'YYYY-MM-DDTHH:mm:ss.SSS[Z]'
+    displayDateFormat:
+      overwrite: true
+      value: 'dd/MM/yyyy'
+- region: en
+  FormattingDefinition:
+    groupSeparator:
+      overwrite: true
+      value: "."
+    radixPoint:
+      overwrite: true
+      value: ","
+    digits:
+      overwrite: false
+      value: 3
+    enforceDigitsOnBlur:
+      overwrite: true
+      value: true
+    longDateFormat: 
+      overwrite: true
+      value: "DD-MM-YYYY HH-MM"
+    longTimeFormat: 
+      overwrite: true
+      value: "HH-MM-SS"
+    shortTimeFormat: 
+      overwrite: true
+      value: "HH-MM"
+    moneyFormat: 
+      overwrite: true
+      value: "en-US"
+    serviceDateFormat:
+      overwrite: true
+      value: 'YYYY-MM-DDTHH:mm:ss.SSS[Z]'
+    displayDateFormat:
+      overwrite: true
+      value: 'dd/MM/yyyy'
 csspath: 
 - /settings/css/asd.css
 
-globalLocalizationqjson: /settings/qjson/globalLocalization.qjson
-rootqjson: /static/qwe.qjson
+pipelineqjson: /settings/qjson/myPipe.qjson
+rootqjson: /static/test.qjson
 fileMap: 
-- id: fvo82nsl-a9tv-kiyq-tk2n-5060mfwi78wx
+- id: h09wa83s-bnei-a66v-zoi5-emf0mj21p3r7
   path: /static
-  name: /shadowTest2.qjson
-  version: Mon Sep 29 2025 17:25:31 GMT+0300 (GMT+03:00)
-- id: 68vovx0x-70d3-qzst-3y68-1sg0mdormqxy
+  name: /testt.qjson
+  version: Mon Dec 15 2025 19:15:19 GMT+0300 (GMT+03:00)
+- id: vuo0vkav-4ytx-mpt4-6mtc-wdp0mj7aivdj
+  path: /static
+  name: /frame1.qjson
+  version: Mon Dec 15 2025 19:06:51 GMT+0300 (GMT+03:00)
+- id: 4ejv51an-y04g-isbp-mlkw-35v0mj7cg73p
+  path: /static
+  name: /frame2.qjson
+  version: Mon Dec 15 2025 19:05:21 GMT+0300 (GMT+03:00)
+- id: xbcucm6w-idjk-t0cx-s8mu-4ff0mdq3erdk
   path: /static
   name: /App Settings.appSettings
-  version: Thu Oct 02 2025 17:29:04 GMT+0300 (GMT+03:00)
-- id: 9kribsnc-cfbp-odsi-6mzm-eps0mdq243cw
-  path: /static
-  name: /qwe.qjson
-  version: Thu Oct 02 2025 17:29:04 GMT+0300 (GMT+03:00)
-- id: 4gqm2ha7-8c8l-ie38-mk0q-q770mf282jjh
+  version: Mon Dec 15 2025 02:42:43 GMT+0300 (GMT+03:00)
+- id: w2yxkjta-ro26-62li-k8gh-xfm0mdswtp8j
   path: /static
   name: /test.qjson
-  version: Thu Oct 02 2025 16:59:02 GMT+0300 (GMT+03:00)
-- id: 815dw0j9-b2l3-s4kv-mcjy-vbb0mf6tcq31
+  version: Mon Dec 15 2025 19:20:11 GMT+0300 (GMT+03:00)
+- id: 5zzae613-vl3z-jvdp-8vo7-5n10mfxd9k8f
   path: /settings/css
   name: /asd.css
-  version: Fri Sep 26 2025 04:25:43 GMT+0300 (GMT+03:00)
-- id: n9udppfm-qmk9-4z3y-su30-czv0mg9iqoa0
+  version: Mon Dec 15 2025 02:42:44 GMT+0300 (GMT+03:00)
+- id: oq15k3yr-2llw-4vqd-ae74-2sx0mj6d9ihx
   path: /static
-  name: /zxc.qjson
-  version: Thu Oct 02 2025 17:37:01 GMT+0300 (GMT+03:00)
+  name: /blankPage.qjson
+  version: Mon Dec 15 2025 19:06:40 GMT+0300 (GMT+03:00)
+- id: mdcxy6pc-fha6-na3n-no84-0hc0mj6dbrzj
+  path: /static
+  name: /Home1.qjson
+  version: Mon Dec 15 2025 19:18:25 GMT+0300 (GMT+03:00)
+- id: ytfu45vo-h42q-vrsb-020l-1zv0mj7cncsz
+  path: /static
+  name: /blankkk.qjson
+  version: Mon Dec 15 2025 19:09:42 GMT+0300 (GMT+03:00)
+- id: af4q1w4c-rfvs-d9ba-iv7y-5io0mj7czvma
+  path: /static
+  name: /onboard.qjson
+  version: undefined
 
-siteTitle: 2ed2
+settings: <<settings:my4gu86w-avc6-no17-rnjl-mp80mdx0soq2>>
+siteTitle: qwew
 useShadowDOM: false
+pipeline: <<pipeline:lmntyso9-g0q9-s88h-w5mu-oax0mihcao2y>>
 
 appSettings:
   general:
-    siteTitle: 2ed2
-    useShadowDOM: true
+    settings: <<settings:my4gu86w-avc6-no17-rnjl-mp80mdx0soq2>>
+    siteTitle: qwew
+    useShadowDOM: false
+    pipeline: <<pipeline:lmntyso9-g0q9-s88h-w5mu-oax0mihcao2y>>
   themeSettings:
     defaultTheme: Theme1
     themes:
@@ -44,7 +161,7 @@ appSettings:
           colors:
             - name: Background
               allowGradient: true
-              color: '#FFFFFF'
+              color: '#1e4aa2'
             - name: Text
               allowGradient: false
               color: '#212121'
@@ -75,47 +192,47 @@ appSettings:
           fonts:
             - fontClassName: Default
               configs:
-                fontFamily: Roboto
+                fontFamily: Nunito
                 fontColor: '#000000'
                 fontSize: 16px
-                displayWeight: Regular - 400
-                fontWeight: '400'
-                combinedFont: Roboto-Regular
+                displayWeight: Weight - 1000
+                fontWeight: '1000'
+                combinedFont: Nunito-Weight
                 fontStyle: normal
                 fontOptions: []
             - fontClassName: Heading 1
               configs:
-                fontFamily: Raleway
+                fontFamily: Source Sans Pro Italic
                 fontColor: '#000000'
                 fontSize: 24px
-                displayWeight: Regular - 400
-                fontWeight: '400'
-                combinedFont: Raleway-Regular
-                fontStyle: normal
+                displayWeight: Black - 900
+                fontWeight: '900'
+                combinedFont: SourceSansPro-BlackItalic
+                fontStyle: italic
                 fontOptions: []
             - fontClassName: Heading 2
               configs:
-                fontFamily: Roboto Italic
+                fontFamily: Montserrat Italic
                 fontColor: '#000000'
                 fontSize: 16px
-                displayWeight: Regular - 400
-                fontWeight: '400'
-                combinedFont: Roboto-RegularItalic
-                fontStyle: Italic
+                displayWeight: Extra Light - 200
+                fontWeight: '200'
+                combinedFont: Montserrat-ExtraLightItalic
+                fontStyle: italic
                 fontOptions: []
             - fontClassName: Heading 3
               configs:
-                fontFamily: Roboto
+                fontFamily: Lato Italic
                 fontColor: '#000000'
                 fontSize: 12px
-                displayWeight: Regular - 400
-                fontWeight: '400'
-                combinedFont: Roboto-Regular
-                fontStyle: normal
+                displayWeight: Black - 900
+                fontWeight: '900'
+                combinedFont: Lato-BlackItalic
+                fontStyle: italic
                 fontOptions: []
             - fontClassName: Paragraph
               configs:
-                fontFamily: Nunito
+                fontFamily: Roboto
                 fontColor: '#000000'
                 fontSize: 12px
                 displayWeight: Regular - 400
@@ -133,5 +250,4 @@ appSettings:
                 combinedFont: Roboto-Regular
                 fontStyle: normal
                 fontOptions: []
-    themeModelId: 83wxsb24-m2cq-3pgz-7ypn-4ko0mdq2tm24
-  globalLocalization: <<globalLocalization:dp807uyx-gx0p-fpk2-4xm9-e0i0mf44sixx>>
+    themeModelId: p9idilmq-um2y-90a7-7lf0-1ph0mdq3febr
